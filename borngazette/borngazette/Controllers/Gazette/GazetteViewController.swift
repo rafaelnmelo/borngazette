@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GazetteViewController: UIViewController {
+class GazetteViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
