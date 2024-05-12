@@ -25,4 +25,11 @@ class AppCoordinator: Coordinator {
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: false)
     }
+    
+    func goToArticle(article: ArticleViewController.Content) {
+        let vc = ArticleViewController()
+        vc.coordinator = self
+        vc.build(data: article)
+        navigationController.pushViewController(vc, animated: false)
+    }
 }

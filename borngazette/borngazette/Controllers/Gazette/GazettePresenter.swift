@@ -50,7 +50,7 @@ extension GazettePresenter {
     
 }
 
-//MARK: - CELLS BUILDERS -
+//MARK: - BUILDERS -
 extension GazettePresenter {
     
     func numberOfNewsRows() -> Int{
@@ -66,8 +66,10 @@ extension GazettePresenter {
         return data
     }
     
-    func newsForDetail(at indexPath: IndexPath) -> Article {
-        return articles[indexPath.row]
+    func articleForDetail(at indexPath: IndexPath) -> ArticleViewController.Content {
+        let article = ArticleViewController.Content(publicationDate: articles[indexPath.row].publishedAt,
+                                                    articleContent: articles[indexPath.row].content,
+                                                    newsPhoto: articles[indexPath.row].urlToImage)
+        return article
     }
-    
 }

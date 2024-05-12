@@ -37,14 +37,6 @@ class GazetteViewController: BaseViewController {
         self.setupView()
         self.getNews()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-    }
 }
 
 //MARK: - FUNCTIONS -
@@ -88,6 +80,11 @@ extension GazetteViewController: ViewCodeProtocol {
 }
 //MARK: - TABLE VIEW DELEGATE -
 extension GazetteViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let data = presenter?.articleForDetail(at: indexPath) {
+            coordinator?.goToArticle(article: data)
+        }
+    }
     
 }
 
@@ -123,3 +120,10 @@ extension GazetteViewController: GazettePresenterDelegate {
         //TODO: Elaborate success
     }
 }
+
+//MARK: - ARTICLEVIEWCONTROLLER DELEGATE -
+//extension GazetteViewController: ArticleViewControllerDelegate {
+//    func saveForLater(index: Int) {
+//        self.collectionView.reloadItems(at: [IndexPath(row: index, section: 0)])
+//    }
+//}
