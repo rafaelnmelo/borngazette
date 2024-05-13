@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8DB9E29D2BF276B1004B98F2 /* ArticlePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB9E29C2BF276B1004B98F2 /* ArticlePresenter.swift */; };
+		8DB9E29F2BF27786004B98F2 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB9E29E2BF27786004B98F2 /* UserDefaultsManager.swift */; };
+		8DB9E2A22BF28229004B98F2 /* ReadLaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB9E2A12BF28229004B98F2 /* ReadLaterViewController.swift */; };
+		8DB9E2A42BF2824D004B98F2 /* ReadLaterPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB9E2A32BF2824D004B98F2 /* ReadLaterPresenter.swift */; };
 		8DBBAC4F2BEFDE76007BE6AD /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBBAC4E2BEFDE76007BE6AD /* AppCoordinator.swift */; };
 		8DBBAC532BEFE1D3007BE6AD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBBAC522BEFE1D3007BE6AD /* BaseViewController.swift */; };
 		8DBBAC552BEFE1F3007BE6AD /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBBAC542BEFE1F3007BE6AD /* BaseNavigationController.swift */; };
@@ -47,6 +51,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8DB9E29C2BF276B1004B98F2 /* ArticlePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlePresenter.swift; sourceTree = "<group>"; };
+		8DB9E29E2BF27786004B98F2 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		8DB9E2A12BF28229004B98F2 /* ReadLaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadLaterViewController.swift; sourceTree = "<group>"; };
+		8DB9E2A32BF2824D004B98F2 /* ReadLaterPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadLaterPresenter.swift; sourceTree = "<group>"; };
 		8DBBAC4E2BEFDE76007BE6AD /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		8DBBAC522BEFE1D3007BE6AD /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		8DBBAC542BEFE1F3007BE6AD /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
@@ -98,6 +106,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8DB9E2A02BF281DB004B98F2 /* ReadLater */ = {
+			isa = PBXGroup;
+			children = (
+				8DB9E2A12BF28229004B98F2 /* ReadLaterViewController.swift */,
+				8DB9E2A32BF2824D004B98F2 /* ReadLaterPresenter.swift */,
+			);
+			path = ReadLater;
+			sourceTree = "<group>";
+		};
 		8DBBAC4D2BEFDE5C007BE6AD /* AppStart */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +128,7 @@
 		8DBBAC502BEFE18F007BE6AD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8DB9E2A02BF281DB004B98F2 /* ReadLater */,
 				8DBBAC562BEFE20A007BE6AD /* Commons */,
 				8DBBAC512BEFE1AC007BE6AD /* Gazette */,
 				8DBBAC572BEFE2D3007BE6AD /* Article */,
@@ -140,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				8DBBAC582BEFE2E3007BE6AD /* ArticleViewController.swift */,
+				8DB9E29C2BF276B1004B98F2 /* ArticlePresenter.swift */,
 			);
 			path = Article;
 			sourceTree = "<group>";
@@ -183,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				8DBBAC672BEFEF02007BE6AD /* ViewCodeProtocol.swift */,
+				8DB9E29E2BF27786004B98F2 /* UserDefaultsManager.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -380,10 +400,13 @@
 			files = (
 				8DBBAC4F2BEFDE76007BE6AD /* AppCoordinator.swift in Sources */,
 				8DBBAC532BEFE1D3007BE6AD /* BaseViewController.swift in Sources */,
+				8DB9E29F2BF27786004B98F2 /* UserDefaultsManager.swift in Sources */,
 				8DBBAC742BF01E23007BE6AD /* UIImageView+Extension.swift in Sources */,
 				8DC263BC2BEFD7C600462A4C /* GazetteViewController.swift in Sources */,
 				8DBBAC622BEFE66A007BE6AD /* NewsModel.swift in Sources */,
 				8DBBAC5C2BEFE5E5007BE6AD /* APICaller.swift in Sources */,
+				8DB9E2A42BF2824D004B98F2 /* ReadLaterPresenter.swift in Sources */,
+				8DB9E2A22BF28229004B98F2 /* ReadLaterViewController.swift in Sources */,
 				8DBBAC5E2BEFE5F1007BE6AD /* NetworkConstant.swift in Sources */,
 				8DBBAC682BEFEF02007BE6AD /* ViewCodeProtocol.swift in Sources */,
 				8DBBAC6B2BEFEF50007BE6AD /* HeadlineCell.swift in Sources */,
@@ -391,6 +414,7 @@
 				8DBBAC652BEFE6B6007BE6AD /* Data+Extension.swift in Sources */,
 				8DC263B82BEFD7C600462A4C /* AppDelegate.swift in Sources */,
 				8DBBAC6E2BEFF375007BE6AD /* GazettePresenter.swift in Sources */,
+				8DB9E29D2BF276B1004B98F2 /* ArticlePresenter.swift in Sources */,
 				8DEFBA572BF129F300F84DFE /* String+Extension.swift in Sources */,
 				8DBBAC592BEFE2E3007BE6AD /* ArticleViewController.swift in Sources */,
 			);

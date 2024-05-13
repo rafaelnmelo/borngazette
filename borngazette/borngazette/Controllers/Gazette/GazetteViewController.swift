@@ -37,6 +37,16 @@ class GazetteViewController: BaseViewController {
         self.setupView()
         self.getNews()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
 }
 
 //MARK: - FUNCTIONS -
@@ -48,7 +58,7 @@ extension GazetteViewController {
     }
     
     private func getNews() {
-        presenter?.getMoviesList()
+        presenter?.getArticles()
     }
 }
 
@@ -74,8 +84,6 @@ extension GazetteViewController: ViewCodeProtocol {
     }
     
     func applyAdditionalChanges() {
-        coordinator?.navigationController.navigationBar.prefersLargeTitles = true
-        title = "Manchetes"
     }
 }
 //MARK: - TABLE VIEW DELEGATE -
@@ -120,10 +128,3 @@ extension GazetteViewController: GazettePresenterDelegate {
         //TODO: Elaborate success
     }
 }
-
-//MARK: - ARTICLEVIEWCONTROLLER DELEGATE -
-//extension GazetteViewController: ArticleViewControllerDelegate {
-//    func saveForLater(index: Int) {
-//        self.collectionView.reloadItems(at: [IndexPath(row: index, section: 0)])
-//    }
-//}

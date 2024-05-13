@@ -42,7 +42,7 @@ class HeadlineCell: UITableViewCell {
     
     private lazy var headlineLb: UILabel = {
        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 10, weight: .bold)
         label.textColor = .white
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -50,36 +50,11 @@ class HeadlineCell: UITableViewCell {
         return label
     }()
     
-    private lazy var sourceStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [sourceName, author])
-        stackView.axis = .vertical
-        stackView.spacing = 4
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
-    
-    private lazy var articleStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [newsPhoto, headlineStackView])
-        stackView.axis = .horizontal
-        stackView.spacing = 8
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.distribution = .fillEqually
-        return stackView
-    }()
-    
-    private lazy var headlineStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [headlineLb, sourceStackView])
-        stackView.axis = .vertical
-        stackView.spacing = 8
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
-    
-    private lazy var sourceName: UILabel = {
+    private lazy var newsDescription: UILabel = {
        let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 10)
         label.textColor = .white
-        label.numberOfLines = 1
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         return label
@@ -89,10 +64,36 @@ class HeadlineCell: UITableViewCell {
        let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 10)
         label.textColor = .white
-        label.numberOfLines = 1
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         return label
+    }()
+    
+    //MARK: STACKS
+    private lazy var titleStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [author, headlineLb])
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    private lazy var headlineStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [newsPhoto, titleStackView])
+        stackView.axis = .horizontal
+        stackView.spacing = 8
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.distribution = .fillEqually
+        return stackView
+    }()
+    
+    private lazy var articleStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [headlineStackView, newsDescription])
+        stackView.axis = .vertical
+        stackView.spacing = 4
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -106,10 +107,15 @@ class HeadlineCell: UITableViewCell {
     }
     
     struct Content {
-        var title: String?
+        var sourceID: String?
+        var sourceName: String?
         var author: String?
-        var name: String?
-        var image: String?
+        var title: String?
+        var description: String?
+        var url: String?
+        var urlToImage: String?
+        var publishedAt: String?
+        var content: String?
     }
 }
 
@@ -118,8 +124,8 @@ extension HeadlineCell {
     func build(data: Content) {
         self.headlineLb.text = data.title
         self.author.text = data.author
-        self.sourceName.text = data.name
-        self.newsPhoto.downloaded(from: data.image)
+        self.newsDescription.text = data.description
+        self.newsPhoto.downloaded(from: data.urlToImage)
     }
 }
 
@@ -143,15 +149,19 @@ extension HeadlineCell: ViewCodeProtocol {
             blurView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             blurView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
             
-            articleStackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
+            articleStackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 5),
             articleStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
-            articleStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
-            articleStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -10),
+            articleStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -5),
+            articleStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -5),
         ])
         
-        let heightConstraint = containerView.heightAnchor.constraint(equalToConstant: 150)
-        heightConstraint.isActive = true
-        heightConstraint.priority = UILayoutPriority.init(999)
+//        let heightConstraint = containerView.heightAnchor.constraint(equalToConstant: 175)
+//        heightConstraint.isActive = true
+//        heightConstraint.priority = UILayoutPriority.init(999)
+        
+        let headlineStackViewConstraint = headlineStackView.heightAnchor.constraint(equalToConstant: 70)
+        headlineStackViewConstraint.isActive = true
+        headlineStackViewConstraint.priority = UILayoutPriority.init(999)
     }
     
     func applyAdditionalChanges() {

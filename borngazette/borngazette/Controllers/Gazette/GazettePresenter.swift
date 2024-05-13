@@ -24,7 +24,7 @@ class GazettePresenter {
     }
     
 //MARK: - FUNCTIONS -
-    func getMoviesList() {
+    func getArticles() {
         APICaller.getArticles { [weak self] result in
             switch result {
             case .success(let newsList):
@@ -59,17 +59,19 @@ extension GazettePresenter {
     
     func newsForRow(at indexPath: IndexPath) -> HeadlineCell.Content{
         
-        let data = HeadlineCell.Content(title: articles[indexPath.row].title,
+        let data = HeadlineCell.Content(sourceID: articles[indexPath.row].source?.id,
+                                        sourceName: articles[indexPath.row].source?.name,
                                         author: articles[indexPath.row].author,
-                                        name: articles[indexPath.row].source?.name,
-                                        image: articles[indexPath.row].urlToImage)
+                                        title: articles[indexPath.row].title,
+                                        description: articles[indexPath.row].description,
+                                        url: articles[indexPath.row].url,
+                                        urlToImage: articles[indexPath.row].urlToImage,
+                                        publishedAt: articles[indexPath.row].publishedAt,
+                                        content: articles[indexPath.row].content)
         return data
     }
     
-    func articleForDetail(at indexPath: IndexPath) -> ArticleViewController.Content {
-        let article = ArticleViewController.Content(publicationDate: articles[indexPath.row].publishedAt,
-                                                    articleContent: articles[indexPath.row].content,
-                                                    newsPhoto: articles[indexPath.row].urlToImage)
-        return article
+    func articleForDetail(at indexPath: IndexPath) -> Article {
+        return articles[indexPath.row]
     }
 }

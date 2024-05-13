@@ -6,21 +6,25 @@
 //
 
 import UIKit
-
+//MARK: - CLASS -
 class BaseNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNavbar()
+        navigationBar.prefersLargeTitles = false
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         .lightContent
     }
+}
+//MARK: - FUNCTIONS -
+extension BaseNavigationController {
     
     func setNavbar() {
         ///Cor do title normal
-        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.systemGray2]
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         self.navigationBar.titleTextAttributes = textAttributes
         
         ///Cor para largeTitle
@@ -44,12 +48,12 @@ class BaseNavigationController: UINavigationController {
     
     func setBackButton() {
         ///Title transparente
-        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.clear]
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         let appearance = UIBarButtonItem.appearance()
         appearance.setTitleTextAttributes(textAttributes, for: .normal)
         appearance.setTitleTextAttributes(textAttributes, for: .highlighted)
         ///Icone de voltar na mesma cor do title na navBar
-        appearance.tintColor = .systemGray2
+        appearance.tintColor = .white
         
         if #available(iOS 15, *) {
             let buttonAppearance = UIBarButtonItemAppearance()
