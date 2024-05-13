@@ -155,10 +155,6 @@ extension HeadlineCell: ViewCodeProtocol {
             articleStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -5),
         ])
         
-//        let heightConstraint = containerView.heightAnchor.constraint(equalToConstant: 175)
-//        heightConstraint.isActive = true
-//        heightConstraint.priority = UILayoutPriority.init(999)
-        
         let headlineStackViewConstraint = headlineStackView.heightAnchor.constraint(equalToConstant: 70)
         headlineStackViewConstraint.isActive = true
         headlineStackViewConstraint.priority = UILayoutPriority.init(999)

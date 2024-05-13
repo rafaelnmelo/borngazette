@@ -22,8 +22,9 @@ extension ReadLaterPresenter {
     func articlesMapper() {
         var article = [String:String]()
         var content = [HeadlineCell.Content]()
+        let list = UserDefaultsManager.shared.userDefaults.object(forKey: UserDefaultsKeys.readLaterList.rawValue) as? [String:Dictionary<String, String>] ?? [:]
         
-        for item in UserDefaultsManager.shared.readLaterList {
+        for item in list {
             for subItem in item.value {
                 switch subItem.key {
                 case "sourceID":
@@ -63,7 +64,6 @@ extension ReadLaterPresenter {
         
         self.articles = content
         self.delegate?.fetchSuccess()
-//        return content.sorted(by: { $0.title ?? "" > $1.title ?? ""})
     }
 }
 

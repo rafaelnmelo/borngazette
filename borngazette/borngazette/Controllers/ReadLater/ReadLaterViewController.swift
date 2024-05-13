@@ -35,14 +35,12 @@ class ReadLaterViewController: BaseViewController {
         super.viewDidLoad()
         self.setupPresenter()
         self.setupView()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        presenter?.articlesMapper()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.presenter?.articlesMapper()
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
