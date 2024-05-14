@@ -27,7 +27,7 @@ class ArticlePresenter {
 extension ArticlePresenter {
     func setupButton(article: Article?) {
         if isArticleSaved(article: article){
-            self.delegate?.setButtonTitle(title: "Remover")
+            self.delegate?.setButtonTitle(title: "Lido!")
         } else {
             self.delegate?.setButtonTitle(title: "Ler Depois")
         }
@@ -45,7 +45,7 @@ extension ArticlePresenter {
             UserDefaultsManager.shared.addToReadLater(item)
             self.delegate?.showMessage(title: "Item salvo",
                                        message: "Este artigo foi adiciona na lista 'Ler depois'")
-            self.delegate?.setButtonTitle(title: "Remover")
+            self.delegate?.setButtonTitle(title: "Lido!")
         }
     }
     

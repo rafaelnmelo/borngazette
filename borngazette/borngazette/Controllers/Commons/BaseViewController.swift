@@ -24,30 +24,6 @@ class BaseViewController: UIViewController {
     }
 }
 
-class BaseTabBarViewController: UITabBarController {
-    
-    var coordinator: AppCoordinator?
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        .lightContent
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.tabBar.backgroundColor = .darkGray
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.isNavigationBarHidden = false
-    }
-}
-
 //MARK: - FUNCTIONS -
 extension BaseViewController {
     func getAlert(title: String, message: String) -> UIAlertController {

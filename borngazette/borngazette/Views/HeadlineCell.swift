@@ -57,6 +57,7 @@ class HeadlineCell: UITableViewCell {
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
+        
         return label
     }()
     
@@ -83,7 +84,7 @@ class HeadlineCell: UITableViewCell {
     private lazy var headlineStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [newsPhoto, titleStackView])
         stackView.axis = .horizontal
-        stackView.spacing = 8
+        stackView.spacing = 16
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.distribution = .fillEqually
         return stackView
@@ -125,8 +126,7 @@ extension HeadlineCell {
     func build(data: Content) {
         self.headlineLb.text = data.title
         self.author.text = data.author
-        let description = data.description?.components(separatedBy: [".","?",";"])
-        self.newsDescription.text = description?[0]
+        self.newsDescription.text = data.description
         self.newsPhoto.downloaded(from: data.urlToImage)
     }
 }
@@ -151,10 +151,10 @@ extension HeadlineCell: ViewCodeProtocol {
             blurView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             blurView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
             
-            articleStackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 5),
-            articleStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
-            articleStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -5),
-            articleStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -5),
+            articleStackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 8),
+            articleStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
+            articleStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8),
+            articleStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8),
         ])
         
         let headlineStackViewConstraint = headlineStackView.heightAnchor.constraint(equalToConstant: 70)

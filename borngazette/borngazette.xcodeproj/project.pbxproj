@@ -26,6 +26,7 @@
 		8DBBAC742BF01E23007BE6AD /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBBAC732BF01E23007BE6AD /* UIImageView+Extension.swift */; };
 		8DBD3F892BF397E80025BF55 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBD3F882BF397E80025BF55 /* ActivityIndicatorView.swift */; };
 		8DBD3F8D2BF39CB50025BF55 /* ReadLaterViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBD3F8C2BF39CB50025BF55 /* ReadLaterViewControllerTests.swift */; };
+		8DBD3F8F2BF3C5600025BF55 /* BaseTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBD3F8E2BF3C5600025BF55 /* BaseTabBarViewController.swift */; };
 		8DC263B82BEFD7C600462A4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC263B72BEFD7C600462A4C /* AppDelegate.swift */; };
 		8DC263BC2BEFD7C600462A4C /* GazetteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC263BB2BEFD7C600462A4C /* GazetteViewController.swift */; };
 		8DC263C42BEFD7C700462A4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DC263C22BEFD7C700462A4C /* LaunchScreen.storyboard */; };
@@ -72,6 +73,7 @@
 		8DBBAC732BF01E23007BE6AD /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		8DBD3F882BF397E80025BF55 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		8DBD3F8C2BF39CB50025BF55 /* ReadLaterViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadLaterViewControllerTests.swift; sourceTree = "<group>"; };
+		8DBD3F8E2BF3C5600025BF55 /* BaseTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarViewController.swift; sourceTree = "<group>"; };
 		8DC263B42BEFD7C600462A4C /* BornGazette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BornGazette.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DC263B72BEFD7C600462A4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DC263BB2BEFD7C600462A4C /* GazetteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GazetteViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			children = (
 				8DBBAC522BEFE1D3007BE6AD /* BaseViewController.swift */,
 				8DBBAC542BEFE1F3007BE6AD /* BaseNavigationController.swift */,
+				8DBD3F8E2BF3C5600025BF55 /* BaseTabBarViewController.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				8DBD3F892BF397E80025BF55 /* ActivityIndicatorView.swift in Sources */,
 				8DBBAC6B2BEFEF50007BE6AD /* HeadlineCell.swift in Sources */,
 				8DBBAC552BEFE1F3007BE6AD /* BaseNavigationController.swift in Sources */,
+				8DBD3F8F2BF3C5600025BF55 /* BaseTabBarViewController.swift in Sources */,
 				8DBBAC652BEFE6B6007BE6AD /* Data+Extension.swift in Sources */,
 				8DC263B82BEFD7C600462A4C /* AppDelegate.swift in Sources */,
 				8DBBAC6E2BEFF375007BE6AD /* GazettePresenter.swift in Sources */,

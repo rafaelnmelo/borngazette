@@ -45,8 +45,26 @@ class ArticleViewController: BaseViewController {
         return label
     }()
     
-    private lazy var stackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [author, articleContent, actions])
+    private lazy var readMore: UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 10))
+        button.backgroundColor = .clear
+        button.setTitle("Ler mais", for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
+        button.addTarget(self, action: #selector(checkURL), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var readLater: UIButton = {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 10))
+        button.backgroundColor = .clear
+        button.addTarget(self, action: #selector(checkReadLaterList), for: .touchUpInside)
+        button.titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
+        return button
+    }()
+    
+    //MARK: STACKS
+    private lazy var articleStack: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [author, articleContent, actionsStack])
         stackView.axis = .vertical
         stackView.spacing = 8
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -54,30 +72,13 @@ class ArticleViewController: BaseViewController {
         return stackView
     }()
     
-    private lazy var actions: UIStackView = {
+    private lazy var actionsStack: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [readMore, readLater])
         stackView.axis = .horizontal
         stackView.spacing = 8
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.distribution = .fillEqually
         return stackView
-    }()
-    
-    private lazy var readMore: UIButton = {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 10))
-        button.backgroundColor = UIColor.gray
-        button.setTitle("Ler mais", for: .normal)
-        button.addTarget(self, action: #selector(checkURL), for: .touchUpInside)
-        button.layer.cornerRadius = 20
-        return button
-    }()
-    
-    private lazy var readLater: UIButton = {
-        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 10))
-        button.backgroundColor = UIColor.systemGray
-        button.addTarget(self, action: #selector(checkReadLaterList), for: .touchUpInside)
-        button.layer.cornerRadius = 20
-        return button
     }()
     
     private var presenter: ArticlePresenter?
@@ -135,7 +136,7 @@ extension ArticleViewController: ViewCodeProtocol {
     func buildHierarchy() {
         view.addSubview(backgroundImage)
         view.addSubview(newsPhoto)
-        view.addSubview(stackView)
+        view.addSubview(articleStack)
     }
     
     func setupConstraints() {
@@ -150,11 +151,15 @@ extension ArticleViewController: ViewCodeProtocol {
             newsPhoto.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             newsPhoto.heightAnchor.constraint(equalTo: newsPhoto.widthAnchor, multiplier: 0.75),
             
-            stackView.topAnchor.constraint(equalTo: newsPhoto.bottomAnchor),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
-            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20)
+            articleStack.topAnchor.constraint(equalTo: newsPhoto.bottomAnchor),
+            articleStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            articleStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            articleStack.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)
         ])
+        
+        let actionsStackViewConstraint = actionsStack.heightAnchor.constraint(equalToConstant: 50)
+        actionsStackViewConstraint.isActive = true
+        actionsStackViewConstraint.priority = UILayoutPriority.init(999)
     }
     
     func applyAdditionalChanges() {
