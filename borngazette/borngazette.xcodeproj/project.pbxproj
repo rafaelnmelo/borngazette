@@ -24,10 +24,13 @@
 		8DBBAC6E2BEFF375007BE6AD /* GazettePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBBAC6D2BEFF375007BE6AD /* GazettePresenter.swift */; };
 		8DBBAC722BF011AB007BE6AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DBBAC712BF011AA007BE6AD /* Assets.xcassets */; };
 		8DBBAC742BF01E23007BE6AD /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBBAC732BF01E23007BE6AD /* UIImageView+Extension.swift */; };
+		8DBD3F892BF397E80025BF55 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBD3F882BF397E80025BF55 /* ActivityIndicatorView.swift */; };
+		8DBD3F8B2BF39C690025BF55 /* ArticleViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBD3F8A2BF39C690025BF55 /* ArticleViewControllerTests.swift */; };
+		8DBD3F8D2BF39CB50025BF55 /* ReadLaterViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBD3F8C2BF39CB50025BF55 /* ReadLaterViewControllerTests.swift */; };
 		8DC263B82BEFD7C600462A4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC263B72BEFD7C600462A4C /* AppDelegate.swift */; };
 		8DC263BC2BEFD7C600462A4C /* GazetteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC263BB2BEFD7C600462A4C /* GazetteViewController.swift */; };
 		8DC263C42BEFD7C700462A4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DC263C22BEFD7C700462A4C /* LaunchScreen.storyboard */; };
-		8DC263CF2BEFD7C700462A4C /* BornGazetteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC263CE2BEFD7C700462A4C /* BornGazetteTests.swift */; };
+		8DC263CF2BEFD7C700462A4C /* GazetteViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC263CE2BEFD7C700462A4C /* GazetteViewControllerTests.swift */; };
 		8DC263D92BEFD7C700462A4C /* BornGazetteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC263D82BEFD7C700462A4C /* BornGazetteUITests.swift */; };
 		8DC263DB2BEFD7C700462A4C /* BornGazetteUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC263DA2BEFD7C700462A4C /* BornGazetteUITestsLaunchTests.swift */; };
 		8DEFBA572BF129F300F84DFE /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEFBA562BF129F300F84DFE /* String+Extension.swift */; };
@@ -68,13 +71,16 @@
 		8DBBAC6D2BEFF375007BE6AD /* GazettePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GazettePresenter.swift; sourceTree = "<group>"; };
 		8DBBAC712BF011AA007BE6AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8DBBAC732BF01E23007BE6AD /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		8DBD3F882BF397E80025BF55 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
+		8DBD3F8A2BF39C690025BF55 /* ArticleViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewControllerTests.swift; sourceTree = "<group>"; };
+		8DBD3F8C2BF39CB50025BF55 /* ReadLaterViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadLaterViewControllerTests.swift; sourceTree = "<group>"; };
 		8DC263B42BEFD7C600462A4C /* BornGazette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BornGazette.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DC263B72BEFD7C600462A4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DC263BB2BEFD7C600462A4C /* GazetteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GazetteViewController.swift; sourceTree = "<group>"; };
 		8DC263C32BEFD7C700462A4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8DC263C52BEFD7C700462A4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC263CA2BEFD7C700462A4C /* BornGazetteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BornGazetteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8DC263CE2BEFD7C700462A4C /* BornGazetteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BornGazetteTests.swift; sourceTree = "<group>"; };
+		8DC263CE2BEFD7C700462A4C /* GazetteViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GazetteViewControllerTests.swift; sourceTree = "<group>"; };
 		8DC263D42BEFD7C700462A4C /* BornGazetteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BornGazetteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DC263D82BEFD7C700462A4C /* BornGazetteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BornGazetteUITests.swift; sourceTree = "<group>"; };
 		8DC263DA2BEFD7C700462A4C /* BornGazetteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BornGazetteUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -211,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				8DBBAC6A2BEFEF50007BE6AD /* HeadlineCell.swift */,
+				8DBD3F882BF397E80025BF55 /* ActivityIndicatorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -254,7 +261,9 @@
 		8DC263CD2BEFD7C700462A4C /* BornGazetteTests */ = {
 			isa = PBXGroup;
 			children = (
-				8DC263CE2BEFD7C700462A4C /* BornGazetteTests.swift */,
+				8DC263CE2BEFD7C700462A4C /* GazetteViewControllerTests.swift */,
+				8DBD3F8A2BF39C690025BF55 /* ArticleViewControllerTests.swift */,
+				8DBD3F8C2BF39CB50025BF55 /* ReadLaterViewControllerTests.swift */,
 			);
 			path = BornGazetteTests;
 			sourceTree = "<group>";
@@ -409,6 +418,7 @@
 				8DB9E2A22BF28229004B98F2 /* ReadLaterViewController.swift in Sources */,
 				8DBBAC5E2BEFE5F1007BE6AD /* NetworkConstant.swift in Sources */,
 				8DBBAC682BEFEF02007BE6AD /* ViewCodeProtocol.swift in Sources */,
+				8DBD3F892BF397E80025BF55 /* ActivityIndicatorView.swift in Sources */,
 				8DBBAC6B2BEFEF50007BE6AD /* HeadlineCell.swift in Sources */,
 				8DBBAC552BEFE1F3007BE6AD /* BaseNavigationController.swift in Sources */,
 				8DBBAC652BEFE6B6007BE6AD /* Data+Extension.swift in Sources */,
@@ -424,7 +434,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DC263CF2BEFD7C700462A4C /* BornGazetteTests.swift in Sources */,
+				8DBD3F8B2BF39C690025BF55 /* ArticleViewControllerTests.swift in Sources */,
+				8DC263CF2BEFD7C700462A4C /* GazetteViewControllerTests.swift in Sources */,
+				8DBD3F8D2BF39CB50025BF55 /* ReadLaterViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

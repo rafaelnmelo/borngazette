@@ -63,4 +63,12 @@ extension BaseViewController {
                                       handler: { (alert) in }))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func showActivityIndicator() {
+        ActivityIndicatorView.showActivityIndicatorView(onView: self.navigationController?.view ?? self.view)
+    }
+    
+    func removeActivityIndicator() {
+        ActivityIndicatorView.removeActivityIndicatorView()
+    }
 }

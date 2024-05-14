@@ -10,7 +10,7 @@ import UIKit
 //MARK: - CLASS -
 class GazetteViewController: BaseViewController {
     
-    private var presenter: GazettePresenter?
+    var presenter: GazettePresenter?
     
     lazy var backgroundImage: UIImageView = {
        let image = UIImageView()
@@ -29,6 +29,16 @@ class GazetteViewController: BaseViewController {
         tableview.dataSource = self
         tableview.register(HeadlineCell.self, forCellReuseIdentifier: HeadlineCell.identifier)
         return tableview
+    }()
+    
+    lazy var emptyView: UITextView = {
+        let view = UITextView(frame: self.view.frame)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .clear
+        view.text = "Não foram encontradas notícias"
+        view.textAlignment = .center
+        view.isHidden = true
+        return view
     }()
     
     override func viewDidLoad() {
@@ -60,6 +70,10 @@ extension GazetteViewController {
     private func getNews() {
         presenter?.getArticles()
     }
+    
+    func removeLoading() {
+        self.removeActivityIndicator()
+    }
 }
 
 //MARK: - VIEWCODE PROTOCOL -
@@ -67,6 +81,7 @@ extension GazetteViewController: ViewCodeProtocol {
     func buildHierarchy() {
         view.addSubview(backgroundImage)
         view.addSubview(tableview)
+        view.addSubview(emptyView)
     }
     
     func setupConstraints() {
@@ -79,7 +94,12 @@ extension GazetteViewController: ViewCodeProtocol {
             tableview.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableview.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableview.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableview.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            tableview.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            emptyView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            emptyView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            emptyView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            emptyView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     
@@ -115,16 +135,22 @@ extension GazetteViewController: UITableViewDataSource {
 
 //MARK: - PRESENTER DELEGATE -
 extension GazetteViewController: GazettePresenterDelegate {
-    func fetchFailure() {
-        print("Falhou")
-        //TODO: Elaborate failure
+    func showEmptyView() {
+        DispatchQueue.main.async {
+            self.tableview.isHidden = true
+            self.emptyView.isHidden = false
+        }
+        self.removeLoading()
     }
     
-    func fetchSuccess() {
-        print("Sucesso")
+    func reloadTableview() {
         DispatchQueue.main.async {
             self.tableview.reloadData()
         }
-        //TODO: Elaborate success
+        self.removeLoading()
+    }
+    
+    func showLoading() {
+        self.showActivityIndicator()
     }
 }

@@ -76,6 +76,7 @@ class HeadlineCell: UITableViewCell {
         stackView.axis = .vertical
         stackView.spacing = 8
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.alignment = .top
         return stackView
     }()
     
@@ -124,7 +125,8 @@ extension HeadlineCell {
     func build(data: Content) {
         self.headlineLb.text = data.title
         self.author.text = data.author
-        self.newsDescription.text = data.description
+        let description = data.description?.components(separatedBy: [".","?",";"])
+        self.newsDescription.text = description?[0]
         self.newsPhoto.downloaded(from: data.urlToImage)
     }
 }

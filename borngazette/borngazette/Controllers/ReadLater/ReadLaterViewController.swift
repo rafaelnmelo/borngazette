@@ -35,7 +35,6 @@ class ReadLaterViewController: BaseViewController {
         super.viewDidLoad()
         self.setupPresenter()
         self.setupView()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {

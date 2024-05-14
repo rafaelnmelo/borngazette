@@ -8,8 +8,9 @@
 import Foundation
 
 protocol GazettePresenterDelegate: AnyObject {
-    func fetchSuccess()
-    func fetchFailure()
+    func reloadTableview()
+    func showEmptyView()
+    func showLoading()
 }
 //MARK: - CLASS -
 class GazettePresenter {
@@ -25,14 +26,15 @@ class GazettePresenter {
     
 //MARK: - FUNCTIONS -
     func getArticles() {
+        self.delegate?.showLoading()
         APICaller.getArticles { [weak self] result in
             switch result {
             case .success(let newsList):
                 self?.articlesMapper(data: newsList)
-                self?.delegate?.fetchSuccess()
+                self?.delegate?.reloadTableview()
                 break
             case .failure:
-                self?.delegate?.fetchFailure()
+                self?.delegate?.showEmptyView()
                 break
             }
         }
