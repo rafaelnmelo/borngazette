@@ -48,7 +48,7 @@ extension BaseNavigationController {
     
     func setBackButton() {
         ///Title transparente
-        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.clear]
         let appearance = UIBarButtonItem.appearance()
         appearance.setTitleTextAttributes(textAttributes, for: .normal)
         appearance.setTitleTextAttributes(textAttributes, for: .highlighted)

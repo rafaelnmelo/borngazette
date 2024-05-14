@@ -25,7 +25,7 @@ class ArticleViewController: BaseViewController {
         return image
     }()
     
-    private lazy var author: UILabel = {
+    private lazy var articleDate: UILabel = {
        let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12, weight: .light)
         label.textColor = .white
@@ -64,7 +64,7 @@ class ArticleViewController: BaseViewController {
     
     //MARK: STACKS
     private lazy var articleStack: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [author, articleContent, actionsStack])
+        let stackView = UIStackView(arrangedSubviews: [articleDate, articleContent, actionsStack])
         stackView.axis = .vertical
         stackView.spacing = 8
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -111,7 +111,7 @@ class ArticleViewController: BaseViewController {
 //MARK: - FUNCTIONS -
 extension ArticleViewController {
     func build(data: Article) {
-        self.author.text = data.author
+        self.articleDate.text = data.publishedAt?.readableDate
         self.articleContent.text = data.content
         self.newsPhoto.downloaded(from: data.urlToImage)
         self.article = data
@@ -163,7 +163,7 @@ extension ArticleViewController: ViewCodeProtocol {
     }
     
     func applyAdditionalChanges() {
-        title = article?.publishedAt?.readableDate
+        title = "Artigo"
     }
 }
 
