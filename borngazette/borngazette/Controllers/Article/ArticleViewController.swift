@@ -81,7 +81,7 @@ class ArticleViewController: BaseViewController {
     }()
     
     private var presenter: ArticlePresenter?
-    private var article: Article?
+    var article: Article?
     
     override func viewDidLoad() {
         super.viewDidLoad()

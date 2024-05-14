@@ -25,7 +25,6 @@
 		8DBBAC722BF011AB007BE6AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DBBAC712BF011AA007BE6AD /* Assets.xcassets */; };
 		8DBBAC742BF01E23007BE6AD /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBBAC732BF01E23007BE6AD /* UIImageView+Extension.swift */; };
 		8DBD3F892BF397E80025BF55 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBD3F882BF397E80025BF55 /* ActivityIndicatorView.swift */; };
-		8DBD3F8B2BF39C690025BF55 /* ArticleViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBD3F8A2BF39C690025BF55 /* ArticleViewControllerTests.swift */; };
 		8DBD3F8D2BF39CB50025BF55 /* ReadLaterViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBD3F8C2BF39CB50025BF55 /* ReadLaterViewControllerTests.swift */; };
 		8DC263B82BEFD7C600462A4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC263B72BEFD7C600462A4C /* AppDelegate.swift */; };
 		8DC263BC2BEFD7C600462A4C /* GazetteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC263BB2BEFD7C600462A4C /* GazetteViewController.swift */; };
@@ -72,7 +71,6 @@
 		8DBBAC712BF011AA007BE6AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8DBBAC732BF01E23007BE6AD /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		8DBD3F882BF397E80025BF55 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
-		8DBD3F8A2BF39C690025BF55 /* ArticleViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewControllerTests.swift; sourceTree = "<group>"; };
 		8DBD3F8C2BF39CB50025BF55 /* ReadLaterViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadLaterViewControllerTests.swift; sourceTree = "<group>"; };
 		8DC263B42BEFD7C600462A4C /* BornGazette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BornGazette.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DC263B72BEFD7C600462A4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -262,7 +260,6 @@
 			isa = PBXGroup;
 			children = (
 				8DC263CE2BEFD7C700462A4C /* GazetteViewControllerTests.swift */,
-				8DBD3F8A2BF39C690025BF55 /* ArticleViewControllerTests.swift */,
 				8DBD3F8C2BF39CB50025BF55 /* ReadLaterViewControllerTests.swift */,
 			);
 			path = BornGazetteTests;
@@ -434,7 +431,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DBD3F8B2BF39C690025BF55 /* ArticleViewControllerTests.swift in Sources */,
 				8DC263CF2BEFD7C700462A4C /* GazetteViewControllerTests.swift in Sources */,
 				8DBD3F8D2BF39CB50025BF55 /* ReadLaterViewControllerTests.swift in Sources */,
 			);

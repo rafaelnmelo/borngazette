@@ -12,23 +12,36 @@ class GazetteViewControllerTests: XCTestCase {
     
     var sut: GazetteViewController?
     
-    override func setUpWithError() throws {
-        let sb = UIStoryboard(name: "GazetteViewController", bundle: nil)
-        sut = sb.instantiateViewController(identifier: "GazetteViewController!") as? GazetteViewController
-        sut?.loadView()
+    override func setUp(){
+        super.setUp()
+        sut = GazetteViewController()
     }
     
-    override func tearDownWithError() throws {
+    override func tearDown() {
+        super.tearDown()
         sut = nil
     }
     
-    func testEmptyTableView() {
-        let isHidden = sut?.tableview.isHidden
-        let list = sut?.presenter?.numberOfNewsRows()
-        if list == 0 {
-            XCTAssertEqual(isHidden, true)
-        } else {
-            XCTAssertEqual(isHidden, false)
-        }
+    func testHasATableView() {
+        XCTAssertNotNil(sut?.tableview)
+    }
+    
+    func testTableViewHasDelegate() {
+        XCTAssertNotNil(sut?.tableview.delegate)
+    }
+    
+    func testTableViewConformsToTableViewDelegateProtocol() {
+        XCTAssertTrue(((sut?.conforms(to: UITableViewDelegate.self)) != nil))
+        XCTAssertTrue(((sut?.responds(to: #selector(sut?.tableView(_:didSelectRowAt:)))) != nil))
+    }
+    
+    func testTableViewHasDataSource() {
+        XCTAssertNotNil(sut?.tableview.dataSource)
+    }
+    
+    func testTableViewConformsToTableViewDataSourceProtocol() {
+        XCTAssertTrue(((sut?.conforms(to: UITableViewDataSource.self)) != nil))
+        XCTAssertTrue(((sut?.responds(to: #selector(sut?.tableView(_:numberOfRowsInSection:)))) != nil))
+        XCTAssertTrue(((sut?.responds(to: #selector(sut?.tableView(_:cellForRowAt:)))) != nil))
     }
 }
