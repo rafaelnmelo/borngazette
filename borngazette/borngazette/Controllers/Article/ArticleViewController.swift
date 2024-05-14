@@ -67,7 +67,7 @@ class ArticleViewController: BaseViewController {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 10))
         button.backgroundColor = UIColor.gray
         button.setTitle("Ler mais", for: .normal)
-        button.addTarget(self, action: #selector(gotToBrowser), for: .touchUpInside)
+        button.addTarget(self, action: #selector(checkURL), for: .touchUpInside)
         button.layer.cornerRadius = 20
         return button
     }()
@@ -75,19 +75,23 @@ class ArticleViewController: BaseViewController {
     private lazy var readLater: UIButton = {
         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 10))
         button.backgroundColor = UIColor.systemGray
-        button.setTitle("Ler depois", for: .normal)
-        button.addTarget(self, action: #selector(addToReadLaterList), for: .touchUpInside)
+        button.addTarget(self, action: #selector(checkReadLaterList), for: .touchUpInside)
         button.layer.cornerRadius = 20
         return button
     }()
     
     private var presenter: ArticlePresenter?
     private var article: Article?
-    private var readLaterList = UserDefaultsManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
+        self.setupView()
+        self.setupPresenter()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.presenter?.setupButton(article: article)
     }
     
     struct Content {        
@@ -110,29 +114,19 @@ extension ArticleViewController {
         self.articleContent.text = data.content
         self.newsPhoto.downloaded(from: data.urlToImage)
         self.article = data
+    }
+    
+    func setupPresenter() {
         presenter = ArticlePresenter(article: article)
+        presenter?.delegate = self
     }
     
-    @objc func gotToBrowser(sender: UIButton!) {
-        guard let url = URL(string: article?.url ?? "") else { return }
-        UIApplication.shared.open(url)
+    @objc func checkURL(sender: UIButton!) {
+        self.presenter?.checkURL(urlString: article?.url)
     }
     
-    @objc func addToReadLaterList(_ sender: Any) {
-        if let article = self.article {
-            guard let fav = presenter?.buildArticle(data: article) else { return }
-            
-            if presenter?.isArticleSaved(article: article) == true {
-                readLaterList.removeFromReadLater(fav)
-                showAlert(title: "Item removido",
-                          message: "Este artigo foi removido da lista 'Ler depois'")
-            } else {
-                readLaterList.addToReadLater(fav)
-                showAlert(title: "Item salvo",
-                          message: "Este artigo foi adiciona na lista 'Ler depois'")
-            }
-        }
-
+    @objc func checkReadLaterList(_ sender: Any) {
+        self.presenter?.checkList(article: article)
     }
 }
 
@@ -165,5 +159,20 @@ extension ArticleViewController: ViewCodeProtocol {
     
     func applyAdditionalChanges() {
         title = article?.publishedAt?.readableDate
+    }
+}
+
+//MARK: - PRESENTER DELEGATE -
+extension ArticleViewController: ArticlePresenterDelegate {
+    func setButtonTitle(title: String) {
+        self.readLater.setTitle(title, for: .normal)
+    }
+    
+    func showMessage(title: String, message: String) {
+        self.showAlert(title: title, message: message)
+    }
+    
+    func openBrowser(url: URL) {
+        UIApplication.shared.open(url)
     }
 }
